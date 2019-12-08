@@ -1,0 +1,9 @@
+export FLASK_ENV='development';
+export USER_DB='water';
+export PASSWORD_DB='water1#';
+export HOST_DB='localhost';
+export DATABASE_URL_DEV="postgres://$USER_DB:$PASSWORD_DB@$HOST_DB:5432/water_cloud";
+export JWT_SECRET_KEY_DEV='hhgaghhgsdhdhdd';
+export DATABASE_URL="postgres://$USER_DB:$PASSWORD_DB@$HOST_DB:5432/water_cloud" ;
+export JWT_SECRET_KEY='89b5bd741c0021fee1eb85b1d33ee278';
+export PORT=2000
