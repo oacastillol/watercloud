@@ -5,4 +5,4 @@ from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 bcrypt = Bcrypt()
 from .SampleModel import SampleModel, SampleSchema
-#from .UserModel import UserModel, UserSchema
+from .UserModel import UserModel, UserSchema

@@ -2,7 +2,7 @@ from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
 from .config import app_config
 from .models import db, bcrypt
-#from .controllers.UserController import user_api as user_blueprint
+from .controllers.UserController import user_api as user_blueprint
 from .controllers.SampleController import sample_api as sample_blueprint
 
 """
@@ -26,7 +26,7 @@ def create_app(env_name):
     bcrypt.init_app(app)
     db.init_app(app)
 
-    #app.register_blueprint(user_blueprint, url_prefix='/api/v1/users')
+    app.register_blueprint(user_blueprint, url_prefix='/users')
     app.register_blueprint(sample_blueprint, url_prefix='/samples')
     """
   PARTIAL FRONT
