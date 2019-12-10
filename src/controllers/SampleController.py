@@ -2,7 +2,7 @@ from flask import request, json, Response, Blueprint, g, escape
 from marshmallow import ValidationError
 from ..models.SampleModel import SampleModel, SampleSchema
 from re import match
-from datetime import datetime
+from datetime import datetime, timedelta
 import pytz
 sample_api = Blueprint('samples', __name__)
 sample_schema = SampleSchema()
@@ -39,6 +39,9 @@ def create():
 @sample_api.route('', methods=['GET'])
 def list():
     samples = SampleModel.get_all_samples()
+    for sample in samples:
+        sample.created_at = sample.created_at - timedelta(hours=5)
+        sample.recepted_at = sample.recepted_at - timedelta(hours=5)
     data = sample_schema.dump(samples, many=True)
     for e in data:
         e['sensores'] = json.loads(e['sensores'])
