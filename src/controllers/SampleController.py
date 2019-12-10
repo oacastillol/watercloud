@@ -48,6 +48,24 @@ def list():
     return custom_response(data, 200)
 
 
+@sample_api.route('/devices/', methods=['GET'])
+@sample_api.route('/devices', methods=['GET'])
+def devices():
+    devices = SampleModel.get_devices()
+    data = sample_schema.dump(devices, many=True)
+    answer = []
+    for ele in data:
+        answer.append({'device': ele['device']})
+    return custom_response(answer, 200)
+
+
+@sample_api.route('/devices/<int:device_id>', methods=['GET'])
+def get_by_devices(device_id):
+    samples = SampleModel.get_samples_by_device(device_id)
+    data = sample_schema.dump(samples, many=True)
+    return custom_response(data, 200)
+
+
 def custom_response(res, status_code):
     """
     Custom Response Function

@@ -1,5 +1,6 @@
 from marshmallow import fields, Schema
 from . import db
+from sqlalchemy import distinct
 
 
 class SampleModel(db.Model):
@@ -38,7 +39,11 @@ class SampleModel(db.Model):
 
     @staticmethod
     def get_samples_by_device(value):
-        return SampleModel.query.filter_by(sevice=value).all()
+        return SampleModel.query.filter_by(device=value).all()
+
+    @staticmethod
+    def get_devices():
+        return SampleModel.query.distinct(SampleModel.device).all()
 
     def __repr(self):
         return '<id {}>'.format(self.id)
