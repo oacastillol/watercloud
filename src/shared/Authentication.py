@@ -51,6 +51,22 @@ class Auth():
       re['error'] = {'message': 'Invalid token, please try again with a new token'}
       return re
 
+  @staticmethod
+  def isLogin(request):
+    if 'api-token' not in request.headers:
+      return False
+    token = request.headers.get('api-token')
+    data = Auth.decode_token(token)
+    if data['error']:
+      return False
+    user_id = data['data']['user_id']
+    print(user_id)
+    check_user = UserModel.get_one_user(user_id)
+    if not check_user:
+      return False
+    g.user = {'id': user_id}
+    return True
+
   # decorator
   @staticmethod
   def auth_required(func):
@@ -85,3 +101,5 @@ class Auth():
       g.user = {'id': user_id}
       return func(*args, **kwargs)
     return decorated_auth
+
+

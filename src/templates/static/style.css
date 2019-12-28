@@ -1,0 +1,32 @@
+body{
+    background-color:gray
+}
+.login{
+    margin-top:20%;
+    padding-right:15%;
+    padding-top:15%;
+    padding-bottom:15%;
+    padding-left:15%;
+    background-color: rgba(50, 115, 50, 0.9);    
+}
+.login h2{
+    color:white;
+}
+@media only screen and (max-width: 768px) {
+    .login{
+	margin-top: -90%;
+	margin-left: 20%;
+    }
+}
+@media only screen and (max-width: 540px) {
+    .login{
+	margin-top: -100%;
+	margin-left: 10%;
+    }
+}
+@media only screen and (max-width: 576px) {
+    .login{
+	margin-top: -180%;
+	margin-left: 5%;	
+    }
+}

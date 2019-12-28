@@ -1,9 +1,38 @@
-{% extends "layout.html" %}
-
+{% extends "bootstrap/base.html" %}
+{% block html_attribs %} lang="es"{% endblock %}
+{% block title %}WaterCloud{% endblock %}
+{% block head%}
+{{super()}}
+ <meta charset="UTF-8"> 
+ {% endblock%}
+ {% block styles %}
+{{super()}}
+<link rel="stylesheet"
+      href="{{url_for('.static', filename='style.css')}}">
+{% endblock %}
 {% block content %}
-<div class="container">
-  <div >
-    {{cache}}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col col-sm-6">
+     <p style="font-size: 0.9rem;font-style: italic;"><img style="display: block;" src="https://farm3.staticflickr.com/2172/5803026366_49328cc099_b.jpg" alt="River Seridó"><a href="https://www.flickr.com/photos/47340307@N05/5803026366">"River Seridó"</a><span> by <a href="https://www.flickr.com/photos/47340307@N05">grungepunk2010</a></span> is licensed under <a href="https://creativecommons.org/licenses/by-sa/2.0/?ref=ccsearch&atype=html" style="margin-right: 5px;">CC BY-SA 2.0</a><a href="https://creativecommons.org/licenses/by-sa/2.0/?ref=ccsearch&atype=html" target="_blank" rel="noopener noreferrer" style="display: inline-block;white-space: none;margin-top: 2px;margin-left: 3px;height: 22px !important;"><img style="height: inherit;margin-right: 3px;display: inline-block;" src="https://search.creativecommons.org/static/img/cc_icon.svg" /><img style="height: inherit;margin-right: 3px;display: inline-block;" src="https://search.creativecommons.org/static/img/cc-by_icon.svg" /><img style="height: inherit;margin-right: 3px;display: inline-block;" src="https://search.creativecommons.org/static/img/cc-sa_icon.svg" /></a></p>
+    </div>
+    <div class="col col-sm-6">
+      <div class="login">
+	<h2>Login</h2>
+	<p><input class="form-control" type="text" name="email" id="email" placeholder="email@email.com"></p>	
+	<p><input class="form-control" type="password" name="password" id="pass" placeholder="password"></p>
+	<p id="message"></p>
+	<div class="btn-group pull-right">
+	  <button type="button" class="btn btn-primary" id="registrar">Registrar</button>
+	  <button type="button" class="btn btn-success" id="entrar">Entrar</button>
+	<div>
+      </div>
+    </div>
+    
   </div>
 </div>
+{% block scripts %}
+{{super()}}
+<script src="{{url_for('static', filename='login.js')}}"></script>
+{% endblock %}
 {% endblock %}

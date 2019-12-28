@@ -1,9 +1,10 @@
-from flask import Flask, render_template
+from flask import Flask, render_template,request,g
 from flask_bootstrap import Bootstrap
 from .config import app_config
 from .models import db, bcrypt
 from .controllers.UserController import user_api as user_blueprint
 from .controllers.SampleController import sample_api as sample_blueprint
+from .shared.Authentication import Auth
 
 """
 Inicio  de la aplicación, crea el proceso y llama a los controladores
@@ -36,5 +37,8 @@ def create_app(env_name):
         """
         Load first page
         """
-        return render_template("index.html")
+        if Auth.isLogin(request):
+            return render_template("index.html")
+        else:
+            return render_template("login.html")
     return app

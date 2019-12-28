@@ -1,11 +1,11 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "df3e6f45801ad7404007eb617e895c9dfbbc6d8a626c1cf525d578235fec7738"
+            "sha256": "d6d5c545bbf2e58be6032afbdf3fc18e0a90176c9251de0fb8f1153742c9ab9d"
         },
         "pipfile-spec": 6,
         "requires": {
-            "python_version": "3.7"
+            "python_version": "3.8"
         },
         "sources": [
             {
@@ -18,9 +18,9 @@
     "default": {
         "alembic": {
             "hashes": [
-                "sha256:49277bb7242192bbb9eac58fed4fe02ec6c3a2a4b4345d2171197459266482b2"
+                "sha256:3b0cb1948833e062f4048992fbc97ecfaaaac24aaa0d83a1202a99fb58af8c6d"
             ],
-            "version": "==1.3.1"
+            "version": "==1.3.2"
         },
         "bcrypt": {
             "hashes": [
@@ -224,7 +224,8 @@
         },
         "pycparser": {
             "hashes": [
-                "sha256:a988718abfad80b6b157acce7bf130a30876d27603738ac39f140993246b25b3"
+                "sha256:a988718abfad80b6b157acce7bf130a30876d27603738ac39f140993246b25b3",
+                "sha256:b3ada066b773bd8f34c505ad9b771e4c2e2f5bdef012e4e90b7c39cff14108e8"
             ],
             "version": "==2.19"
         },
@@ -268,9 +269,9 @@
         },
         "sqlalchemy": {
             "hashes": [
-                "sha256:afa5541e9dea8ad0014251bc9d56171ca3d8b130c9627c6cb3681cff30be3f8a"
+                "sha256:bfb8f464a5000b567ac1d350b9090cf081180ec1ab4aa87e7bca12dab25320ec"
             ],
-            "version": "==1.3.11"
+            "version": "==1.3.12"
         },
         "visitor": {
             "hashes": [
