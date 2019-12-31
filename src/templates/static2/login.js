@@ -3,7 +3,7 @@ $(document).ready(function(){
     if(pageInitialized) return;
     pageInitialized=true;
     init();
-    // addFunctions();
+    addFunctions();
 });
 function init(){
     if (localStorage.getItem("token-user")  !== null){
@@ -15,4 +15,12 @@ function init(){
 }
 function userLoged(){
     location.reload(); 
+}
+function addFunctions(){
+    $('#entrar').click(function(){
+	let email = $('#email').val();
+	
+
+    });
+
 }

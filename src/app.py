@@ -1,5 +1,5 @@
 from flask import Flask, render_template,request,g
-from flask_bootstrap import Bootstrap
+#from flask_bootstrap import Bootstrap
 from .config import app_config
 from .models import db, bcrypt
 from .controllers.UserController import user_api as user_blueprint
@@ -20,9 +20,10 @@ def create_app(env_name):
     # app initiliazation
     app = Flask(
         __name__,
-        static_url_path="/static",
-        static_folder="templates/static")
-    Bootstrap(app)
+        static_url_path='/static',
+        static_folder="./templates/static",
+        template_folder="./templates")
+ #   Bootstrap(app)
     app.config.from_object(app_config[env_name])
     bcrypt.init_app(app)
     db.init_app(app)
@@ -36,9 +37,11 @@ def create_app(env_name):
     def index():
         """
         Load first page
-        """
+        
         if Auth.isLogin(request):
             return render_template("index.html")
         else:
             return render_template("login.html")
+        """
+        return render_template("index.html")
     return app
